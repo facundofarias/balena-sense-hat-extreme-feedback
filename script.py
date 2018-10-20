@@ -3,6 +3,10 @@ import time
 import urllib.request
 import json
 
+# Sample repository
+username = 'fenics-project'
+repository = 'dolfin'
+
 sense = SenseHat()
 sense.low_light = True
 
@@ -127,7 +131,9 @@ count = 0
 
 while True:
     time.sleep(10)
-    contents = urllib.request.urlopen("http://www.mocky.io/v2/5bcb2a972f00004e0075be93").read()
+    url = f'https://api.bitbucket.org/2.0/repositories/{username}/{repository}/pipelines/?sort=-created_on'
+    #contents = urllib.request.urlopen("http://www.mocky.io/v2/5bcb2a972f00004e0075be93").read()
+    contents = urllib.request.urlopen(url).read()
     json_content = json.loads(contents)
     last_build = json_content['values'].pop()
     if last_build['state']['name'] == 'COMPLETED' and last_build['state']['result']['name'] == 'SUCCESSFUL':
