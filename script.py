@@ -20,23 +20,6 @@ white = (255,255,255)
 nothing = (0,0,0)
 pink = (255,105, 180)
 
-def trinket_logo():
-    G = green
-    Y = yellow
-    B = blue
-    O = nothing
-    logo = [
-    O, O, O, O, O, O, O, O,
-    O, Y, Y, Y, B, G, O, O,
-    Y, Y, Y, Y, Y, B, G, O,
-    Y, Y, Y, Y, Y, B, G, O,
-    Y, Y, Y, Y, Y, B, G, O,
-    Y, Y, Y, Y, Y, B, G, O,
-    O, Y, Y, Y, B, G, O, O,
-    O, O, O, O, O, O, O, O,
-    ]
-    return logo
-
 def raspi_logo():
     G = green
     R = red
