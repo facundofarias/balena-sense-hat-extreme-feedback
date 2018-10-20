@@ -89,13 +89,43 @@ def heart():
     O, O, O, O, O, O, O, O,
     ]
     return logo
+    
+def red_cross():
+    R = red
+    O = nothing
+    logo = [
+    R, R, O, O, O, O, R, R,
+    R, R, R, O, O, R, R, R,
+    O, R, R, R, R, R, R, O,
+    O, O, R, R, R, R, O, O,
+    O, O, R, R, R, R, O, O,
+    O, R, R, R, R, R, R, O,
+    R, R, R, O, O, R, R, R,
+    R, R, O, O, O, O, R, R,
+    ]
+    return logo
+    
+def green_plus():
+    G = green
+    O = nothing
+    logo = [
+    O, O, O, G, G, O, O, O, 
+    O, O, O, G, G, O, O, O,
+    O, O, O, G, G, O, O, O, 
+    G, G, G, G, G, G, G, G,
+    G, G, G, G, G, G, G, G,
+    O, O, O, G, G, O, O, O,
+    O, O, O, G, G, O, O, O,
+    O, O, O, G, G, O, O, O,
+    ]
+    return logo
 
-images = [trinket_logo, trinket_logo, plus, raspi_logo, raspi_logo, equals, heart, heart]
+images = [red_cross, green_plus]
 count = 0
 
-# while True: 
-    # s.set_pixels(images[count % len(images)]())
-    # time.sleep(.75)
-    # count += 1
+while True: 
+    s.set_pixels(images[count % len(images)]())
+    time.sleep(.75)
+    count += 1
 
-s.set_pixels(raspi_logo())
+#s.set_pixels(green_plus())
