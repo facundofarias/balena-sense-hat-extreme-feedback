@@ -11,4 +11,4 @@ RUN apt-get update && apt-get install -yq \
 COPY . /usr/src/app
 WORKDIR /usr/src/app
 
-CMD ["python3", "sample.py"]
+CMD ["python3", "script.py"]
