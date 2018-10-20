@@ -1,7 +1,9 @@
-from sense_hat import SenseHat
+import os
 import time
-import urllib.request
 import json
+import urllib.request
+
+from sense_hat import SenseHat
 
 interval = 10
 username = os.environ['USERNAME']
