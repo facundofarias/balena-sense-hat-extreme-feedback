@@ -3,7 +3,7 @@ import time
 import urllib.request
 import json
 
-# Sample repository
+# Specify which bitbucket repository
 username = 'fenics-project'
 repository = 'dolfin'
 
@@ -131,7 +131,7 @@ count = 0
 
 while True:
     time.sleep(10)
-    url = f'https://api.bitbucket.org/2.0/repositories/{username}/{repository}/pipelines/?sort=-created_on'
+    url = 'https://api.bitbucket.org/2.0/repositories/%s/%s/pipelines/?sort=-created_on' % (username, repository)
     #contents = urllib.request.urlopen("http://www.mocky.io/v2/5bcb2a972f00004e0075be93").read()
     contents = urllib.request.urlopen(url).read()
     json_content = json.loads(contents)
