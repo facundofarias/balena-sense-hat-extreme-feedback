@@ -133,8 +133,8 @@ while True:
     if last_build['state']['name'] == 'COMPLETED' and last_build['state']['result']['name'] == 'SUCCESSFUL':
       # Do something
       print ('GREEN')
-      green_plus()
+      sense.set_pixels(green_plus())
     else:
       # Do something else
       print ('RED')
-      red_cross()
+      sense.set_pixels(red_cross())
