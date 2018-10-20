@@ -1,8 +1,10 @@
 from sense_hat import SenseHat
 import time
+import urllib.request
+import json
 
-s = SenseHat()
-s.low_light = True
+sense = SenseHat()
+sense.low_light = True
 
 green = (0, 255, 0)
 yellow = (255, 255, 0)
@@ -123,9 +125,16 @@ def green_plus():
 images = [red_cross, green_plus]
 count = 0
 
-while True: 
-    s.set_pixels(images[count % len(images)]())
-    time.sleep(.75)
-    count += 1
-
-#s.set_pixels(green_plus())
+while True:
+    time.sleep(10)
+    contents = urllib.request.urlopen("http://www.mocky.io/v2/5bcb2a972f00004e0075be93").read()
+    json_content = json.loads(contents)
+    last_build = json_content['values'].pop()
+    if last_build['state']['name'] == 'COMPLETED' and last_build['state']['result']['name'] == 'SUCCESSFUL':
+      # Do something
+      print ('GREEN')
+      green_plus()
+    else:
+      # Do something else
+      print ('RED')
+      red_cross()
