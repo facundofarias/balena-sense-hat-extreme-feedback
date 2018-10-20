@@ -6,8 +6,8 @@ import urllib.request
 from sense_hat import SenseHat
 
 interval = 10
-username = os.environ['USERNAME']
-repository = os.environ['RESPOSITORY']
+username = os.environ['BITBUCKET_USERNAME']
+repository = os.environ['BITBUCKET_REPOSITORY']
 
 sense = SenseHat()
 sense.low_light = True
