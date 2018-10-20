@@ -132,7 +132,7 @@ count = 0
 while True:
     time.sleep(10)
     url = 'https://api.bitbucket.org/2.0/repositories/%s/%s/pipelines/?sort=-created_on' % (username, repository)
-    #contents = urllib.request.urlopen("http://www.mocky.io/v2/5bcb2a972f00004e0075be93").read()
+    print ('Using url -> ' + url)
     contents = urllib.request.urlopen(url).read()
     json_content = json.loads(contents)
     last_build = json_content['values'].pop()
