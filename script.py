@@ -3,9 +3,9 @@ import time
 import urllib.request
 import json
 
-# Specify which bitbucket repository
-username = 'fenics-project'
-repository = 'dolfin'
+interval = 10
+username = os.environ['USERNAME']
+repository = os.environ['RESPOSITORY']
 
 sense = SenseHat()
 sense.low_light = True
@@ -130,9 +130,8 @@ images = [red_cross, green_plus]
 count = 0
 
 while True:
-    time.sleep(10)
+    time.sleep(interval)
     url = 'https://api.bitbucket.org/2.0/repositories/%s/%s/pipelines/?sort=-created_on' % (username, repository)
-    print ('Using url -> ' + url)
     contents = urllib.request.urlopen(url).read()
     json_content = json.loads(contents.decode('utf-8'))
     last_build = json_content['values'].pop()
