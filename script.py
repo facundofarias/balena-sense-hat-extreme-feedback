@@ -134,7 +134,7 @@ while True:
     url = 'https://api.bitbucket.org/2.0/repositories/%s/%s/pipelines/?sort=-created_on' % (username, repository)
     print ('Using url -> ' + url)
     contents = urllib.request.urlopen(url).read()
-    json_content = json.loads(contents.decode('utf-8'))
+    json_content = json.loads(contents.json())
     last_build = json_content['values'].pop()
     if last_build['state']['name'] == 'COMPLETED' and last_build['state']['result']['name'] == 'SUCCESSFUL':
       # Do something
